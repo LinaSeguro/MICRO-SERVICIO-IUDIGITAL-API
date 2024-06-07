@@ -1,7 +1,8 @@
 FROM nginx:alpine
 
 # Copy nginx configuration file
-COPY balanceador/nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 
 
 # Expose port and run the application
