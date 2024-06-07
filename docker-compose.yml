@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  proyecto-micro-iudigital:
+    container_name: proyecto-micro-iudigital
+    image: proyecto-micro-iudigital:v1
+    build:
+      context: .
+      args:
+        MONGODB_URI_LOCAL: ${MONGODB_URI_LOCAL}
+    ports:
+      - "4200:4200"
+    networks:
+      - proyecto-iudigital-app
+    environment:
+      - NODE_ENV=docker
+      - MONGODB_URI_LOCAL=${MONGODB_URI_LOCAL}
+      
+  balanceador:
+    container_name: balanceador
+    image: balanceador:v1
+    build:
+      context: ./balanceador
+    ports:
+      - "4300:80"
+    networks:
+      - proyecto-iudigital-app
+    environment:
+      - NODE_ENV=docker
+
+
+networks:
+  proyecto-iudigital-app:
