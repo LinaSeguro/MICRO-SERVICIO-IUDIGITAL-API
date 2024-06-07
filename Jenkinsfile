@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clonar el Repositorio') {
             steps {
-                git branch: 'main', url: 'https://github.com/jorearmando15/MICRO-SERVICIO-IUDIGITAL-API'
+                git branch: 'main', url: 'https://github.com/LinaSeguro/MICRO-SERVICIO-IUDIGITAL-API.git'
             }
         }
         stage('Construir imagen de Docker') {
