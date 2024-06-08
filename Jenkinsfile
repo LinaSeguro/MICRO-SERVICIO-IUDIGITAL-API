@@ -14,7 +14,8 @@ pipeline {
                         string(credentialsId: 'MONGODB_URI_LOCAL', variable: 'MONGODB_URI_LOCAL')
                     ]) {
                         // Ajusta la ruta del Dockerfile según la ubicación proporcionada
-                        docker.build("proyectos-micro:v${env.BUILD_ID}", "--build-arg MONGODB_URI_LOCAL=${MONGODB_URI_LOCAL} -f balanceador/Dockerfile .")
+                        docker.build("proyectos-micro:v${env.BUILD_ID}", "--no-cache --build-arg MONGODB_URI_LOCAL=${MONGODB_URI_LOCAL} -f balanceador/Dockerfile .")
+
                     }
                 }
             }
